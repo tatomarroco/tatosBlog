@@ -11,10 +11,10 @@
     "diagrams": [
       {
         "id": 0,
-        "title": "Nuevo diagrama LINDDUN",
-        "diagramType": "LINDDUN",
-        "placeholder": "Descripción de nuevo diagrama LINDDUN",
-        "thumbnail": "./public/content/images/thumbnail.linddun.jpg",
+        "title": "Nuevo diagrama PLOT4ai",
+        "diagramType": "PLOT4ai",
+        "placeholder": "Descripción de nuevo diagrama PLOT4ai",
+        "thumbnail": "./public/content/images/thumbnail.plot4ai.jpg",
         "version": "2.6.0",
         "cells": [
           {
