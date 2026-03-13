@@ -11,10 +11,10 @@
     "diagrams": [
       {
         "id": 0,
-        "title": "Nuevo diagrama de juegos EoP",
-        "diagramType": "EOP",
-        "placeholder": "Descripción de nuevo diagrama de juegos EoP",
-        "thumbnail": "./public/content/images/thumbnail.eop.jpg",
+        "title": "Nuevo diagrama genérico",
+        "diagramType": "Genérico",
+        "placeholder": "Descripción de nuevo diagrama genérico",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
         "version": "2.6.0",
         "cells": [
           {
