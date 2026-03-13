@@ -1358,25 +1358,16 @@
             "labels": [
               ""
             ],
-            "id": "4c732952-c4cd-4c0e-842a-42a57de17046",
+            "id": "f70eb469-de1f-4eb1-b25d-8b4c7abf04ce",
             "source": {
-              "cell": "168acd75-f124-473c-9246-2b7029abf8a3",
-              "port": "673eecb6-0b72-4530-a9b5-d7e3b1b9f9e6"
+              "x": 700,
+              "y": 260
             },
             "target": {
-              "cell": "72a7bf2d-ab81-44bb-90be-66a38395ad60",
-              "port": "96fa4d0f-5326-4647-933c-da39defe91bf"
+              "cell": "168acd75-f124-473c-9246-2b7029abf8a3",
+              "port": "7617144a-68e9-4184-9a0b-46e0df5a8416"
             },
-            "vertices": [
-              {
-                "x": 650,
-                "y": 150
-              },
-              {
-                "x": 700,
-                "y": 200
-              }
-            ]
+            "vertices": []
           },
           {
             "shape": "flow",
@@ -1398,7 +1389,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1412,16 +1403,66 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Data Flow"
+              ""
             ],
-            "id": "f70eb469-de1f-4eb1-b25d-8b4c7abf04ce",
+            "id": "4c732952-c4cd-4c0e-842a-42a57de17046",
             "source": {
-              "x": 700,
-              "y": 260
+              "cell": "168acd75-f124-473c-9246-2b7029abf8a3",
+              "port": "96fa4d0f-5326-4647-933c-da39defe91bf"
             },
             "target": {
-              "x": 800,
-              "y": 360
+              "cell": "72a7bf2d-ab81-44bb-90be-66a38395ad60",
+              "port": "96fa4d0f-5326-4647-933c-da39defe91bf"
+            },
+            "vertices": [
+              {
+                "x": 650,
+                "y": 150
+              },
+              {
+                "x": 700,
+                "y": 200
+              }
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
             }
           }
         ],
