@@ -31,8 +31,8 @@
                 "text": "User"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -129,9 +129,53 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "649ad179-d25d-4c33-90a1-2ed26798273b",
+                  "title": "Robo de credenciales mediante phishing",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Spoofing / Spoofing",
+                  "description": "El usuario es engañado para ingresar sus credenciales en un sitio web falso que imita al legítimo. El atacante captura estas credenciales y puede suplantar la identidad del usuario en el sistema real.",
+                  "mitigation": "Implementar autenticación multifactor (MFA), capacitar a usuarios en detección de phishing, usar filtros anti-phishing en correo y navegadores.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": "9"
+                },
+                {
+                  "id": "accdeac2-2bd8-43f0-87ef-7b927f84775c",
+                  "title": "Cross-Site Scripting (XSS) con repudio de acciones",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Repudiation / Repudiación",
+                  "description": "Un atacante inyecta scripts maliciosos en una página web vista por otros usuarios. Cuando la víctima ejecuta acciones sin saberlo, el sistema no puede probar quién realizó realmente dichas acciones, permitiendo que el atacante niegue su participación.",
+                  "mitigation": "Implementar Content Security Policy (CSP), validar y escapar todas las entradas de usuario, mantener logs detallados con integridad (firmados o en sistemas inmútables).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": "7"
+                },
+                {
+                  "id": "9fd5e9f5-0e0b-423d-9f55-4764f65c8517",
+                  "title": "Credenciales débiles o reutilizadas",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing / Spoofing",
+                  "description": "Los usuarios utilizan contraseñas fáciles de adivinar (ej: \"123456\") o reutilizan la misma contraseña en múltiples servicios. Un atacante que comprometa una cuenta puede acceder a otras usando las mismas credenciales, suplantando al usuario.",
+                  "mitigation": "Establecer políticas de contraseñas fuertes, implementar MFA, promover el uso de gestores de contraseñas, realizar auditorías periódicas de credenciales comprometidas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": "7"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "repudiation": 1
+              }
             }
           },
           {
@@ -148,8 +192,8 @@
                 "text": "Web Browser"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -246,12 +290,80 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "8cc4c232-8834-4c9c-8b38-947ef89b87da",
+                  "title": "Cross-Site Scripting (XSS) en el navegador",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante inyecta scripts maliciosos en una página web legítima. Cuando el usuario víctima accede, el script se ejecuta en su navegador, pudiendo robar cookies, tokens de sesión, o realizar acciones en nombre del usuario sin su consentimiento.",
+                  "mitigation": "Implementar Content Security Policy (CSP), validar y escapar todas las entradas de usuario, usar cabeceras HttpOnly y Secure para cookies, realizar pruebas de seguridad en el frontend.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": "9"
+                },
+                {
+                  "id": "c184a2d9-d9f2-42f2-a0ba-3275b42c8e21",
+                  "title": "Almacenamiento inseguro de datos sensibles",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "La aplicación web almacena información sensible (tokens, credenciales, datos personales) en localStorage, sessionStorage o cookies sin las protecciones adecuadas. Un atacante con acceso al navegador (por XSS o acceso físico) puede leer esta información.",
+                  "mitigation": "Evitar almacenar datos sensibles en el navegador, usar cookies con flags Secure, HttpOnly y SameSite, implementar tiempos de expiración cortos, cifrar datos sensibles antes de almacenarlos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": "8"
+                },
+                {
+                  "id": "f8ef1616-b36c-4cde-9da5-9145e7c4727a",
+                  "title": "Secuestro de sesión por robo de cookies",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Spoofing / Spoofing",
+                  "description": "Un atacante roba las cookies de sesión del usuario (mediante XSS, red insegura, malware) y las utiliza para suplantar su identidad en la aplicación, accediendo a sus datos y funcionalidades sin autorización.",
+                  "mitigation": "Usar cookies con flags HttpOnly, Secure y SameSite=Strict, implementar huella digital del navegador (fingerprinting), rotar session IDs después del login, usar MFA.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": "9"
+                },
+                {
+                  "id": "1e679f20-d36e-42b1-a7b3-24030541ed6c",
+                  "title": "Extensiones maliciosas del navegador",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation / Repudiación",
+                  "description": "El usuario instala extensiones de navegador no confiables que pueden leer/modificar el contenido de las páginas visitadas, robar credenciales, inyectar publicidad o capturar información sensible ingresada en formularios.",
+                  "mitigation": "Capacitar a usuarios sobre riesgos de extensiones, mantener una lista de extensiones aprobadas en entornos corporativos, usar navegadores gestionados con políticas de seguridad.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 33,
+                  "score": "7"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -268,8 +380,8 @@
                 "text": "API Gateway"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -366,12 +478,47 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "4f70fd71-4a07-4686-a8b4-b0a2a2e8c463",
+                  "title": "Abuso de API sin rate limiting",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service / Denegación de servicio",
+                  "description": "Un atacante realiza miles de peticiones a la API en poco tiempo, saturando el servidor (DoS) o realizando ataques de fuerza bruta para adivinar credenciales.",
+                  "mitigation": "Implementar rate limiting, throttling y WAF.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "7"
+                },
+                {
+                  "id": "289de01f-1acd-4c61-8b94-ba0c4e29b4d0",
+                  "title": " Token JWT robado o mal validado",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Elevation of privilege / Elevación de privilegios",
+                  "description": "Un atacante obtiene un token JWT válido (por robo, fuga o mala configuración) y lo utiliza para acceder a la API como si fuera el usuario legítimo.",
+                  "mitigation": "Firmas fuertes (HS256/RS256), corta expiración, validación en backend, revocación de tokens.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": "9"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -388,8 +535,8 @@
                 "text": "Third Party\nApplications"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -486,9 +633,53 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "cddd71f2-e7b1-4739-89ae-512b750a1913",
+                  "title": "Dependencia insegura con repudio de acciones",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Repudiation / Repudiación",
+                  "description": "Una aplicación de terceros integrada al sistema es comprometida por atacantes. Cuando estos acceden a datos internos o realizan acciones maliciosas a través de la integración, no es posible probar si las acciones fueron realizadas por el tercero legítimo o por el atacante, debido a la falta de trazabilidad.",
+                  "mitigation": "Realizar due diligence de seguridad del tercero, establecer contratos con cláusulas de seguridad y auditoría, implementar logging detallado y firmado de todas las acciones realizadas vía integraciones, aplicar principio de mínimo privilegio.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": "9"
+                },
+                {
+                  "id": "d9e2af67-3289-4460-ad21-6f7da7747ef8",
+                  "title": "Transferencia de datos sin cifrar con repudio de acceso",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Repudiation / Repudiación",
+                  "description": "Los datos enviados desde el sistema interno hacia aplicaciones de terceros viajan sin cifrado (HTTP plano, FTP, etc.). Si son interceptados por un atacante, el sistema no puede probar quién tuvo acceso a ellos ni demostrar que el tercero no los expuso, ya que no hay registros cifrados de la transmisión.",
+                  "mitigation": "Forzar el uso de TLS 1.2+ para todas las comunicaciones, implementar VPN o túneles cifrados si es necesario, mantener logs de las transferencias con integridad criptográfica.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": "8"
+                },
+                {
+                  "id": "adce8e3a-ad6a-43e0-8ee4-3395b17b1749",
+                  "title": "Falta de control de acceso con suplantación del tercero",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing / Spoofing",
+                  "description": "La integración con el tercero tiene permisos excesivos o está mal configurada. Un atacante puede suplantar al tercero (haciéndose pasar por la aplicación legítima) y acceder a sistemas internos, datos sensibles o funciones privilegiadas, aprovechando la confianza establecida.",
+                  "mitigation": "Aplicar principio de mínimo privilegio en todas las integraciones, usar autenticación fuerte mutua (mTLS), revisar periódicamente los alcances de OAuth y tokens, implementar validación de IP o certificados del tercero.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": "8"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 2
+              }
             }
           },
           {
@@ -505,8 +696,8 @@
                 "text": "Python\nBack End"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -603,12 +794,60 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "624895e1-f1e0-48ed-b7f8-ed8d8f99a601",
+                  "title": " Inyección de comandos",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante envía datos maliciosos que el backend interpreta como comandos del sistema, logrando ejecutar código arbitrario en el servidor con los privilegios de la aplicación. ",
+                  "mitigation": "Validación estricta de entradas, uso de consultas parametrizadas, evitar eval() y exec().",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "10"
+                },
+                {
+                  "id": "7c090b6e-fb80-4c8e-aad3-fcdae6c8b759",
+                  "title": "Exposición de secretos en código fuente",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Claves API, contraseñas de bases de datos o tokens quedan hardcodeados en el repositorio, accesibles a cualquiera con acceso al código.",
+                  "mitigation": "Usar variables de entorno, gestores de secretos (HashiCorp Vault), escaneo de código.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "9"
+                },
+                {
+                  "id": "9d415ddf-05b3-4222-b3b1-69fad34512db",
+                  "title": "Fallas en autenticación y autorización",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Elevation of privilege / Elevación de privilegios",
+                  "description": "El backend no valida correctamente los permisos del usuario, permitiendo que un usuario autenticado acceda a recursos o funciones de otro usuario (IDOR, privilegios escalados). ",
+                  "mitigation": "Implementar RBAC, validar en cada petición, pruebas de penetración.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "9"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 2
+              }
             }
           },
           {
@@ -625,8 +864,8 @@
                 "text": "Data \nProcessor"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -723,12 +962,47 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "e880da16-9163-461a-9860-fbe7f4a0593c",
+                  "title": "Procesamiento con código malicioso o alterado",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering / Manipulación",
+                  "description": " Un atacante modifica el script o algoritmo de procesamiento de datos para que produzca resultados erróneos o para que filtre información sensible durante el proceso.",
+                  "mitigation": "Firmas de código, integridad de archivos, entornos aislados.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": "9"
+                },
+                {
+                  "id": "598b6628-d4bb-405f-bae5-1a6a319cbf69",
+                  "title": "Fuga de datos sensibles en logs de procesamiento",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Durante el procesamiento, datos sensibles (credenciales) se escriben en archivos de log que pueden ser accesibles a personal no autorizado o atacantes.",
+                  "mitigation": " Sanitización de logs, acceso restringido a archivos de log, rotación segura.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": "7"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -745,11 +1019,13 @@
                 "text": "Raw Data"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -846,13 +1122,46 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "19aeadf1-d8e4-4c10-931d-dcb012d841c9",
+                  "title": "Datos no cifrados en reposo",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Los datos almacenados en bases de datos o sistemas de archivos no están cifrados, por lo que si un atacante accede al almacenamiento, puede leer toda la información sensible. ",
+                  "mitigation": "Cifrado en reposo (AES-256), gestión segura de claves.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "9"
+                },
+                {
+                  "id": "fec0b5e8-3873-443e-9f85-c05e950ac228",
+                  "title": "Manipulación de datos sin controles de integridad",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante con acceso modifica los datos almacenados sin que el sistema detecte el cambio, afectando la integridad de la información y los resultados posteriores.",
+                  "mitigation": "Checksums, firmas digitales, registros de auditoría. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": "8"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -869,11 +1178,13 @@
                 "text": "Processed\nScientific Data"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -970,13 +1281,72 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "abf6cec2-dc19-4cf4-a1f5-ba186263fc1b",
+                  "title": "Robo de propiedad intelectual",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Atacantes externos o internos maliciosos acceden a los resultados científicos procesados y los filtran o venden.",
+                  "mitigation": " Cifrado en reposo y tránsito, DLP, controles de acceso estrictos, MFA. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": "10"
+                },
+                {
+                  "id": "d3f3701f-d7c4-43cb-ba5c-430fd484cda1",
+                  "title": "Acceso no autorizado a datos finales",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Usuarios sin los permisos adecuados acceden a los datos procesados debido a fallas en la autorización o configuraciones incorrectas. ",
+                  "mitigation": "RBAC, autenticación fuerte, revisión periódica de permisos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": "8"
+                },
+                {
+                  "id": "9ba0c8a2-6fb2-489b-9ae3-833c0b6665c3",
+                  "title": "Manipulación de resultados científicos",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante modifica los datos científicos ya procesados para alterar conclusiones, causar daño reputacional o beneficiar a competidores.",
+                  "mitigation": "Firmas digitales, blockchain/hashes de integridad, control de versiones inmutable. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": "9"
+                },
+                {
+                  "id": "714cd67d-539b-488c-9f2b-6af49aac37e4",
+                  "title": "Nueva amenaza STRIDE",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation / Repudiación",
+                  "description": "Introduzca una descripción para esta amenaza",
+                  "mitigation": "Introduzca la mitigación o prevención para esta amenaza",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 21,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -993,8 +1363,8 @@
                 "text": "Emailer\nProcess"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1091,12 +1461,47 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "2926feb5-16c5-44d2-bb00-575635a79288",
+                  "title": "Ejecución de malware mediante adjuntos",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un usuario recibe un correo con un archivo adjunto malicioso que, al abrirlo, ejecuta código dañino en su sistema, comprometiendo el equipo y potencialmente la red. ",
+                  "mitigation": "Sandboxing de adjuntos, antivirus, prohibir ejecución automática y capacitar usuarios.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "9"
+                },
+                {
+                  "id": "f8112bbf-4312-4865-aec4-9bbdc1817d5e",
+                  "title": "Divulgación accidental de datos sensibles",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un empleado envía por error información confidencial (contraseñas, datos personales) a destinatarios no autorizados a través del proceso de correo. ",
+                  "mitigation": "Herramientas DLP, revisiones manuales, políticas de clasificación de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "7"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -2313,7 +2718,8 @@
             "target": {
               "x": 860,
               "y": 560
-            }
+            },
+            "vertices": []
           },
           {
             "shape": "trust-boundary-curve",
@@ -2323,7 +2729,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Boundary",
-              "name": "Trust Boundary",
+              "name": "Internal Network Boundary",
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false,
@@ -2331,17 +2737,18 @@
               "containedElements": []
             },
             "labels": [
-              "Trust Boundary"
+              "Internal Network Boundary"
             ],
             "id": "da5bbd89-4f75-4532-bce5-535cb06a7e63",
             "source": {
-              "x": 1050,
-              "y": -10
+              "x": 1120,
+              "y": -30
             },
             "target": {
-              "x": 1150,
-              "y": 90
-            }
+              "x": 1120,
+              "y": 560
+            },
+            "vertices": []
           }
         ],
         "description": "Modelado de Amenazas"
@@ -2349,6 +2756,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 4
+    "threatTop": 33
   }
 }
