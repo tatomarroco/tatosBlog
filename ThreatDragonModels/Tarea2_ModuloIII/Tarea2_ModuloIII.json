@@ -136,7 +136,7 @@
           },
           {
             "position": {
-              "x": 530,
+              "x": 520,
               "y": 105
             },
             "size": {
@@ -1263,7 +1263,60 @@
             "target": {
               "cell": "168acd75-f124-473c-9246-2b7029abf8a3",
               "port": "f369a219-1358-4e80-80aa-eeb7b226ade1"
-            }
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              ""
+            ],
+            "id": "4887a2fb-e79b-437a-a916-de747710d0b4",
+            "source": {
+              "x": 390,
+              "y": 160
+            },
+            "target": {
+              "x": 540,
+              "y": 280
+            },
+            "vertices": [
+              {
+                "x": 540,
+                "y": 220
+              }
+            ]
           }
         ],
         "description": "Modelado de Amenazas"
