@@ -1218,6 +1218,35 @@
               "privilegeLevel": "",
               "threats": []
             }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "dcac122c-1534-4d26-a6b3-b4f1b9be0e4d",
+            "source": {
+              "x": 380,
+              "y": 150
+            },
+            "target": {
+              "x": 480,
+              "y": 250
+            },
+            "vertices": []
           }
         ],
         "description": "Modelado de Amenazas"
