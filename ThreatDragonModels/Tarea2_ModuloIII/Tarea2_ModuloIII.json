@@ -11,10 +11,10 @@
     "diagrams": [
       {
         "id": 0,
-        "title": "New CIA-DIE diagram",
-        "diagramType": "CIADIE",
-        "placeholder": "New CIA-DIE diagram description",
-        "thumbnail": "./public/content/images/thumbnail.die.jpg",
+        "title": "Nuevo diagrama LINDDUN",
+        "diagramType": "LINDDUN",
+        "placeholder": "Descripción de nuevo diagrama LINDDUN",
+        "thumbnail": "./public/content/images/thumbnail.linddun.jpg",
         "version": "2.6.0",
         "cells": [
           {
